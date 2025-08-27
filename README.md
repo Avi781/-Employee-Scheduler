@@ -1,5 +1,3 @@
-# Employee Scheduler (MVC) - Starter
-
 # Employee Daily Scheduler Backend
 
 ## 1️⃣ Project Overview
@@ -26,8 +24,10 @@ npm install
 
 Create a .env file in project root:
 
-MONGO_URI=mongodb://localhost:27017/scheduler
 PORT=5000
+MONGO_URI=
+JWT_SECRET=
+JWT_EXPIRES=
 
 2.4 Seed Sample Data
 node src/seeds/seed.js
