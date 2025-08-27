@@ -1,0 +1,52 @@
+openapi: 3.0.0
+info:
+  title: Employee Scheduler API
+  version: 1.0.0
+servers:
+  - url: http://localhost:5000
+paths:
+  /auth/register:
+    post:
+      tags: [Auth]
+      summary: Register (demo seed)
+      requestBody:
+        required: true
+      responses:
+        '200': { description: OK }
+  /auth/login:
+    post:
+      tags: [Auth]
+      summary: Login
+      requestBody:
+        required: true
+  /employees:
+    post:
+      tags: [Employees]
+      summary: Create employee (admin)
+    get:
+      tags: [Employees]
+      summary: List employees
+  /shifts:
+    post:
+      tags: [Shifts]
+      summary: Create shift
+  /shifts/{id}/assign:
+    post:
+      tags: [Shifts]
+      summary: Assign employees to shift
+  /schedule/daily:
+    get:
+      tags: [Schedule]
+      summary: Daily schedule by date/location/team
+  /analytics/coverage:
+    get:
+      tags: [Analytics]
+      summary: Coverage analytics (aggregation)
+      parameters:
+        - name: date
+          in: query
+          required: true
+          schema: { type: string }
+        - name: locationId
+          in: query
+          schema: { type: string }
