@@ -68,10 +68,12 @@ Body:
 GET /api/v1/shifts/coverage?date=2025-08-27&location=LOCATION_ID
 
 4️⃣ Data Model & Index Strategy
-Model	Fields	Indexes
-Employee	_id, name, email, role, skills, teams, locations, availability, employmentType	email (unique), locations, teams
-Shift	_id, date, start, end, startMin, endMin, requiredSkills, headcount, assignedEmployees, location	date, location, assignedEmployees
-TimeOff	_id, employeeId, startDate, endDate, status, reason	employeeId, startDate, endDate, status
+| Model    | Fields                                                                                                              | Indexes                                        |
+| -------- | ------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| Employee | `_id`, `name`, `email`, `role`, `skills`, `teams`, `locations`, `availability`, `employmentType`                    | `email` (unique), `locations`, `teams`         |
+| Shift    | `_id`, `date`, `start`, `end`, `startMin`, `endMin`, `requiredSkills`, `headcount`, `assignedEmployees`, `location` | `date`, `location`, `assignedEmployees`        |
+| TimeOff  | `_id`, `employeeId`, `startDate`, `endDate`, `status`, `reason`                                                     | `employeeId`, `startDate`, `endDate`, `status` |
+
 5️⃣ Conflict Rules
 
 Time-off Clash: Employee cannot be assigned to shift during approved time-off.
